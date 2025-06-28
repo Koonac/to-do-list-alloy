@@ -1,18 +1,11 @@
 <script setup>
-import { useCounterStore } from "@/stores/counter";
-import { storeToRefs } from "pinia";
-
-const counterStore = useCounterStore();
-const { counter } = storeToRefs(counterStore);
-
-const increment = () => {
-    counterStore.increment();
-};
+import TaskModal from "./TaskModal.vue";
+import TaskList from "./TaskList.vue";
 </script>
 
 <template>
     <div class="tasks">
-        <p>Contador: {{ counter }}</p>
-        <button @click="increment">Incrementar</button>
+        <TaskModal :show="showModal" @close="showModal = false" />
+        <TaskList />
     </div>
 </template>
